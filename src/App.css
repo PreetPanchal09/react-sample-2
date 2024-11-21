@@ -1,0 +1,7 @@
+#grid {
+  border-collapse: collapse;
+}
+
+.cells {
+  border: 2px black solid;
+}
