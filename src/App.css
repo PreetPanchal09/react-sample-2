@@ -16,5 +16,6 @@
   border: 1px solid #000; /* Optional border for each cell */
   font-size: 24px; /* Optional text size */
   background-color: orange; /* Optional background color */
+  color: black;
   cursor: pointer; /* Pointer cursor for interactivity */
 }
