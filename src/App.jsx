@@ -6,9 +6,6 @@ function App() {
   const [turn, setTurn] = useState(0)
 
   const PlayerMove = (id) => {
-    console.log(board)
-    console.log(id)
-    console.log(turn)
     const NewBoard = board.map(cell => {
       if (cell.id === id && cell.text === '') { // Ensure the cell is empty
         setTurn(turn + 1)
@@ -17,6 +14,32 @@ function App() {
       return cell;
     })
     setBoard(NewBoard)
+    checkWin({Board: NewBoard})
+  }
+
+  const checkWin = ({Board = board}) => {
+    console.log("Checked Win")
+    for (let i = 0; i < 3; i++) {
+      if (Board[0 + i*3].text === Board[1 + i*3].text && Board[1 + i*3].text === Board[2 + i*3].text && Board[0 + i*3].text !== '') {
+        clearBoard()
+      }
+      console.log("1")
+    }
+
+    for (let i = 0; i < 3; i++) {
+      if (Board[i].text === Board[3 + i].text && Board[3 + i].text === Board[6 + i].text && Board[i].text !== '') {
+        clearBoard()
+      }
+      console.log("2")
+    }
+
+    if (Board[0].text === Board[4].text && Board[4].text === Board[8].text && Board[0].text !== '') {
+      clearBoard()
+    }
+
+    if (Board[2].text === Board[4].text && Board[4].text === Board[6].text && Board[2].text !== '') {
+      clearBoard()
+    }
   }
 
   const clearBoard = () => {
