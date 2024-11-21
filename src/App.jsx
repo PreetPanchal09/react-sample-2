@@ -13,6 +13,7 @@ function App() {
           Cell = createElement("p")
           Cell.addEventListener(onclick, () => {
             Cell.textContent = {Player}
+            setPlayer()
           })
           return Cell
         })}
